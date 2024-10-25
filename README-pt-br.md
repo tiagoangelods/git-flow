@@ -34,3 +34,20 @@ Para iniciar o git flow, você precisa estar na branch principal do projeto, que
 git flow init
 ```
 
+O resultado será algo parecido com isso:
+
+```bash
+Which branch should be used for bringing forth production releases?
+   - main
+Branch name for production releases: [main] 
+Branch name for "next release" development: [develop] 
+
+How to name your supporting branch prefixes?
+Feature branches? [feature/] 
+Bugfix branches? [bugfix/] 
+Release branches? [release/] 
+Hotfix branches? [hotfix/] 
+Support branches? [support/] 
+Version tag prefix? [] 
+Hooks and filters directory? [/projects-directory/.git/hooks]
+```
