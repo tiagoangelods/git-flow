@@ -34,6 +34,53 @@ Para iniciar o git flow, você precisa estar na branch principal do projeto, que
 git flow init
 ```
 
+O resultado será algo parecido com isso:
+
+```bash
+Which branch should be used for bringing forth production releases?
+   - main
+Branch name for production releases: [main] 
+Branch name for "next release" development: [develop] 
+
+How to name your supporting branch prefixes?
+Feature branches? [feature/] 
+Bugfix branches? [bugfix/] 
+Release branches? [release/] 
+Hotfix branches? [hotfix/] 
+Support branches? [support/] 
+Version tag prefix? [] 
+Hooks and filters directory? [/projects-directory/.git/hooks]
+```
+## Features
+### Criando uma nova feature
+
+Para criar uma nova feature, você precisa estar na branch `develop`.
+
+```bash
+git flow feature start nome-da-feature
+```
+
+Este comando representa o mesmo que o comando básico do git:
+
+```bash
+git checkout develop
+git checkout -b name-feature
+```
+
+### Finalizando uma feature
+
+Para finalizar uma feature no git-flow, execute o seguinte comando:
+
+```bash
+git flow feature finish nome-da-feature
+```
+
+Este comando representa o mesmo que o comando básico do git:
+
+```bash
+git checkout develop
+git merge name-feature
+```
 ## Hotfixes
 
 ### Criando um hotfix
@@ -65,4 +112,35 @@ git merge hotfix/name-hotfix
 git tag name-hotfix
 git branch -d hotfix/name-hotfix
 ```
+## Releases
 
+### Criando uma release
+
+```bash
+git flow release start name-release
+```
+
+Este comando cria uma nova branch chamada `release/name-release` a partir da branch `develop`. Os comando acima é equivalente a:
+
+```bash
+git checkout develop
+git checkout -b release/name-release
+```
+
+### Finalizando uma release
+
+```bash
+git flow release finish name-release
+```
+
+Este comando faz o merge da branch `release/name-release` na branch `main` e na branch `develop`. Os comando acima é equivalente a:
+
+```bash
+git checkout master
+git merge release/name-release
+git checkout develop
+git merge release/name-release
+git tag name-release
+```
+
+## Extras
