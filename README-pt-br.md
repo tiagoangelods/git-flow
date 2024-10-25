@@ -112,4 +112,33 @@ git merge hotfix/name-hotfix
 git tag name-hotfix
 git branch -d hotfix/name-hotfix
 ```
+## Releases
 
+### Criando uma release
+
+```bash
+git flow release start name-release
+```
+
+Este comando cria uma nova branch chamada `release/name-release` a partir da branch `develop`. Os comando acima é equivalente a:
+
+```bash
+git checkout develop
+git checkout -b release/name-release
+```
+
+### Finalizando uma release
+
+```bash
+git flow release finish name-release
+```
+
+Este comando faz o merge da branch `release/name-release` na branch `main` e na branch `develop`. Os comando acima é equivalente a:
+
+```bash
+git checkout master
+git merge release/name-release
+git checkout develop
+git merge release/name-release
+git tag name-release
+```
