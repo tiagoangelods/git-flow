@@ -8,7 +8,7 @@ Recomenda-se utilizar o git flow para aplicacões que precisam de ter um control
 
 ## Brahcnes
 
-- **master/main**: É a branch principal do projeto, onde está a versão mais estável do projeto.
+- **main**: É a branch principal do projeto, onde está a versão mais estável do projeto.
 
 - **develop**: É a branch de desenvolvimento, onde as features são desenvolvidas e testadas.
 
@@ -28,7 +28,7 @@ Recomenda-se utilizar o git flow para aplicacões que precisam de ter um control
 
 ## Iniciando o git flow
 
-Para iniciar o git flow, você precisa estar na branch principal do projeto, que geralmente é a `master` ou `main`.
+Para iniciar o git flow, você precisa estar na branch principal do projeto, que geralmente é a `main` ou `main`.
 
 ```bash
 git flow init
@@ -81,3 +81,35 @@ Este comando representa o mesmo que o comando básico do git:
 git checkout develop
 git merge name-feature
 ```
+## Hotfixes
+
+### Criando um hotfix
+
+```bash
+git flow hotfix start name-hotfix
+```
+
+Este comando cria uma nova branch chamada `hotfix/name-hotfix` a partir da branch `main`. Os comando acima é equivalente a:
+
+```bash
+git checkout main
+git checkout -b hotfix/name-hotfix
+```
+
+### Finalizando um hotfix
+
+```bash
+git flow hotfix finish name-hotfix
+```
+
+Este comando faz o merge da branch `hotfix/name-hotfix` na branch `main` e na branch `develop`. Os comando acima é equivalente a:
+
+```bash
+git checkout main
+git merge hotfix/name-hotfix
+git checkout develop
+git merge hotfix/name-hotfix
+git tag name-hotfix
+git branch -d hotfix/name-hotfix
+```
+
