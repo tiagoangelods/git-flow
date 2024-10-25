@@ -51,3 +51,33 @@ Support branches? [support/]
 Version tag prefix? [] 
 Hooks and filters directory? [/projects-directory/.git/hooks]
 ```
+## Features
+### Criando uma nova feature
+
+Para criar uma nova feature, você precisa estar na branch `develop`.
+
+```bash
+git flow feature start nome-da-feature
+```
+
+Este comando representa o mesmo que o comando básico do git:
+
+```bash
+git checkout develop
+git checkout -b name-feature
+```
+
+### Finalizando uma feature
+
+Para finalizar uma feature no git-flow, execute o seguinte comando:
+
+```bash
+git flow feature finish nome-da-feature
+```
+
+Este comando representa o mesmo que o comando básico do git:
+
+```bash
+git checkout develop
+git merge name-feature
+```
