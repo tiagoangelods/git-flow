@@ -142,3 +142,5 @@ git checkout develop
 git merge release/name-release
 git tag name-release
 ```
+
+## Extras
